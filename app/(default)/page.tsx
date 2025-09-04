@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Open PRO",
-  description: "Page description",
+  title: "Stelestial - Software",
+  description: "Soluções em Software em Belo Horizonte",
 };
 
 import PageIllustration from "@/components/page-illustration";
