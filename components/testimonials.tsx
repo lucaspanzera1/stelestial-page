@@ -26,8 +26,8 @@ const testimonials = [
   {
     img: TestimonialImg01,
     clientImg: ClientImg01,
-    name: "MaKayla P.",
-    company: "Disney",
+    name: "Theo Purcino",
+    company: "Projeto Alugar Kids",
     content:
       "As a content creator, I was always on the lookout for a tool that could help me keep up with the demand. The AI-driven content tool has been a game-changer. It generates high-quality content in a fraction of the time it used to take me.",
     categories: [1, 3, 5],
@@ -35,8 +35,8 @@ const testimonials = [
   {
     img: TestimonialImg02,
     clientImg: ClientImg02,
-    name: "Andrew K.",
-    company: "Samsung",
+    name: "Ana Cristina ",
+    company: "AP Consultoria",
     content:
       "I've tried several content generation tools, but this AI-driven tool is by far the best. It understands my brand's voice and consistently produces content that resonates with my audience!",
     categories: [1, 2, 4],
@@ -116,11 +116,10 @@ export default function Testimonials() {
         {/* Section header */}
         <div className="mx-auto max-w-3xl pb-12 text-center">
           <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-            Don't take our word for it
+            Não acredite apenas na nossa palavra
           </h2>
           <p className="text-lg text-indigo-200/65">
-            We provide tech-first solutions that empower decision-makers to
-            build healthier and happier workspaces from anywhere in the world.
+Oferecemos soluções tecnológicas que capacitam tomadores de decisão a criar ambientes de trabalho mais saudáveis ​​e felizes em qualquer lugar do mundo.
           </p>
         </div>
 
