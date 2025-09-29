@@ -246,7 +246,7 @@ export default function RibeiroSuccessCase() {
                     <div className="mb-6 md:mb-0">
                       <div className="h-24 w-24 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-600">
                         <Image
-                          src="/images/testimonial-05.jpg"
+                          src="/images/carlos.jpg"
                           alt="Foto do Ribeiro"
                           width={96}
                           height={96}
