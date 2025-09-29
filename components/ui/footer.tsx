@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <Logo />
             <p className="mt-2 text-sm text-indigo-200/65">
-              © stelestial.com.br
+              © stelestial.app
             </p>
           </div>
 
