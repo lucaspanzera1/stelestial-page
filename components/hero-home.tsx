@@ -1,3 +1,5 @@
+
+'use client';
 import VideoThumb from "@/public/images/hero-img-01.jpg";
 import ModalVideo from "@/components/modal-video";
 
@@ -27,7 +29,31 @@ export default function HeroHome() {
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
                     className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
+                    href="#sucesscase"
+                    onClick={e => {
+                      e.preventDefault();
+                      const el = document.getElementById('sucesscase');
+                      if (!el) return;
+                      const targetY = el.getBoundingClientRect().top + window.scrollY;
+                      const startY = window.scrollY;
+                      const distance = targetY - startY;
+                      const duration = 900;
+                      let start: number | undefined;
+                      function easeInOutQuad(t: number): number {
+                        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                      }
+                      function step(timestamp: number) {
+                        if (start === undefined) start = timestamp;
+                        const elapsed = timestamp - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = easeInOutQuad(progress);
+                        window.scrollTo(0, startY + distance * eased);
+                        if (elapsed < duration) {
+                          window.requestAnimationFrame(step);
+                        }
+                      }
+                      window.requestAnimationFrame(step);
+                    }}
                   >
                     <span className="relative inline-flex items-center">
                       Conheça nosso trabalho
