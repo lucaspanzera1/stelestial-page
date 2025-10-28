@@ -37,3 +37,5 @@ next-env.d.ts
 
 # contentlayer
 .contentlayer
+.next/ # já tem
+node_modules/ # já tem
