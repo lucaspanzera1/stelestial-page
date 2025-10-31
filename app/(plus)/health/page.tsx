@@ -49,7 +49,7 @@ function Badge({ status }: { status: string }) {
 }
 
 // Presentational component: recebe os dados e renderiza a UI
-export function HealthStatusUI({ data }: { data: HealthPayload | null }) {
+function HealthStatusUI({ data }: { data: HealthPayload | null }) {
   if (!data) return null;
 
   return (
