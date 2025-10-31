@@ -62,6 +62,15 @@ export default function Footer() {
                 
               </a>
             </li>
+            <li>
+              <a
+                className="flex items-center justify-center rounded px-3 py-1 text-sm font-medium text-indigo-200/90 bg-indigo-700/10 hover:bg-indigo-700/20"
+                href="/health"
+                aria-label="Status dos sistemas"
+              >
+                Status
+              </a>
+            </li>
           </ul>
         </div>
       </div>
