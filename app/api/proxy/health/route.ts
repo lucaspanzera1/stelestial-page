@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // Whitelist of supported upstream health endpoints
 const WHITELIST: Record<string, string> = {
   novoden0v0: 'https://novoden0v0.com.br/api/health',
+  delivery: 'https://delivery.stelestial.app/api/health',
 };
 
 export async function GET(req: NextRequest) {

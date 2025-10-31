@@ -130,6 +130,7 @@ export default function HealthPage() {
   // systems list - could come from config or API
   const systems = [
     { key: 'novoden0v0', name: 'novoden0v0.com.br' },
+    { key: 'delivery', name: 'MarketDelivery' },
   ];
 
   return (
