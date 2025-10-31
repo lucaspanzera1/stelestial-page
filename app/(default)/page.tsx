@@ -12,6 +12,7 @@ import Testimonials from "@/components/testimonials";
 import Cta from "@/components/cta";
 import SuccessCase from "@/components/sucesscase";
 import RibeiroSucessCase from "@/components/ribeirosucesscase";
+import MarketDeliverySuccessCase from "@/components/marketdeliverysuccesscase";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Pricing />
       <Testimonials />
     <SuccessCase />
+        <MarketDeliverySuccessCase />
     <RibeiroSucessCase />
       <Cta />
     </>
