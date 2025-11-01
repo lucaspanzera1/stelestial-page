@@ -133,6 +133,39 @@ export default function HealthPage() {
     { key: 'delivery', name: 'MarketDelivery' },
   ];
 
+  const [initialLoading, setInitialLoading] = React.useState(true);
+  const [loadedSystems, setLoadedSystems] = React.useState<Set<string>>(new Set());
+
+  // Pequeno delay mínimo para evitar flickering
+  React.useEffect(() => {
+    const minDelay = setTimeout(() => {
+      setInitialLoading(false);
+    }, 500); // mínimo 500ms
+
+    return () => clearTimeout(minDelay);
+  }, []);
+
+  // Pequeno delay mínimo para evitar flickering
+  React.useEffect(() => {
+    const minDelay = setTimeout(() => {
+      setInitialLoading(false);
+    }, 500); // mínimo 500ms
+
+    return () => clearTimeout(minDelay);
+  }, []);
+
+  const handleSystemLoaded = React.useCallback((key: string) => {
+    setLoadedSystems(prev => {
+      const newSet = new Set(prev);
+      newSet.add(key);
+      // Mostrar cards assim que pelo menos um sistema carregar
+      if (newSet.size >= 1) {
+        setInitialLoading(false);
+      }
+      return newSet;
+    });
+  }, []);
+
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -142,16 +175,25 @@ export default function HealthPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {systems.map((s) => (
-          <SystemCard key={s.key} system={s} />
-        ))}
-      </div>
+      {initialLoading ? (
+        <div className="flex items-center justify-center py-12">
+          <div className="flex flex-col items-center gap-4">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-400"></div>
+            <p className="text-indigo-200/60">Carregando status dos sistemas...</p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {systems.map((s) => (
+            <SystemCard key={s.key} system={s} onLoaded={handleSystemLoaded} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-function SystemCard({ system }: { system: { key: string; name: string } }) {
+function SystemCard({ system, onLoaded }: { system: { key: string; name: string }; onLoaded?: (key: string) => void }) {
   const [data, setData] = React.useState<HealthPayload | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -170,8 +212,9 @@ function SystemCard({ system }: { system: { key: string; name: string } }) {
       setData(null);
     } finally {
       setLoading(false);
+      onLoaded?.(system.key);
     }
-  }, [system.key]);
+  }, [system.key, onLoaded]);
 
   React.useEffect(() => {
     const controller = new AbortController();
